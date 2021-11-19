@@ -1,14 +1,14 @@
-import inctance from ".";
+import instance from ".";
 
 export const productApi = {
-  createProd:async(payload)=>await inctance.post('/products/create',payload),
+  createProd:(payload)=> instance.post('/product-create',payload),
 
-  getProducts:async()=>await inctance.get('/products'),
+  getProducts:()=> instance.get('/products'),
 
-  getProd:async(payload)=>await inctance.get('/product',payload),
+  getProd:(payload)=> instance.get(`/products?id=${payload}`),
 
-  updateProd:async(payload)=>await inctance.patch('/product-update',payload),
+  updateProd:(payload,id)=> instance.patch('/product-update?id='+id,payload),
 
-  deleteProd:async(payload)=>await inctance.delete('/products-delete',payload),
+  deleteProd:(payload)=> instance.delete('/products-delete',payload),
 
 }

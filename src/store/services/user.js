@@ -1,17 +1,19 @@
-import inctance from ".";
+import instance from ".";
 
 
 export const userApi = {
-  signUp:async (payload)=> await inctance.post('/registration',payload),
+  signUp:(payload)=>instance.post('/registration',payload),
   
-  refreshToken:async ()=> await inctance.get('/refresh'),
+  refreshToken:()=>instance.get('/refresh'),
 
-  logout:async ()=> await inctance.get('/logout'),
+  logout:()=>instance.get('/logout'),
 
-  getMe:async ()=> await inctance.get('/profile'),
+  getMe:()=>instance.get('/profile'),
 
-  updateUser:async (payload)=> await inctance.patch('/profile-update',payload),
+  updateUser:(payload)=>instance.patch('/profile-update',payload),
 
-  deleteUser:async ()=> await inctance.delete('/profile-delete'),
+  deleteUser:()=>instance.delete('/profile-delete'),
+
+  login:(payload)=>instance.post('/login',payload),
 
 }

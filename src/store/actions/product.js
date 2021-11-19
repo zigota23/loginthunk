@@ -1,51 +1,51 @@
-import { SETPRODUCTDATA } from "../actionType/product";
+
+import { setProductData } from "../reducers/product";
 import { productApi } from "../services/product";
 
 
-export const setProdData = (data)=>({type:SETPRODUCTDATA,data})
+
 
 
 /* Thunk */
-export const createProd = (payload)=>(dispatch)=>{
+export const createProd = (navigate,payload)=>async(dispatch)=>{
   try{
-    const {dataCreate} = productApi.createProd(payload)
-    const {dataGet} = productApi.getProducts()
-    dispatch(setProdData(dataGet))
+    const {dataCreate} = await productApi.createProd(payload)
+    navigate('/products')
   }catch(error){
     console.log(error)
   }
 }
 
-export const getProducts = ()=>(dispatch)=>{
+export const getProducts = ()=>async(dispatch)=>{
   try{
-    const {data}= productApi.getProducts()
-    dispatch(setProdData(data))
+    const {data}= await productApi.getProducts()
+    dispatch(setProductData(data))
   }catch(error){
     console.log(error)
   }
 }
 
-export const getProd = (payload)=>(dispatch)=>{
+export const getProd = (payload)=>async(dispatch)=>{
   try{
-    const {data} = productApi.getProd(payload)
-    dispatch(setProdData(data))
+    const {data} = await productApi.getProd(payload)
+    dispatch(setProductData(data))
   }catch(error){
     console.log(error)
   }
 }
 
-export const updateProd = (payload)=>(dispatch)=>{
+export const updateProd = (navigate,payload,id)=>async(dispatch)=>{
   try{
-    const {data} = productApi.updateProd(payload)
-    dispatch(getProducts())
+    const {data} = await productApi.updateProd(payload,id)
+    navigate('/product')
   }catch(error){
     console.log(error)
   }
 }
 
-export const deleteProd = (payload)=>(dispatch)=>{
+export const deleteProd = (payload)=>async(dispatch)=>{
   try{
-    const {data} = productApi.deleteProd(payload)
+    const {data} = await productApi.deleteProd(payload)
     dispatch(getProducts())
   }catch(error){
     console.log(error)

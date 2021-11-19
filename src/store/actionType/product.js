@@ -1,6 +1,0 @@
-export const CREATEPROD = 'productReducer/createprod'
-export const GETPRODUCTS = 'productReducer/getproducts'
-export const GETPROD = 'productReducer/getprod'
-export const UPDATEPROD = 'productReducer/update'
-export const DELETEPROD = 'productReducer/delete'
-export const SETPRODUCTDATA = 'productReducer/setdata'

@@ -1,0 +1,54 @@
+.prodRating{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.product{
+  display: flex;
+}
+
+.imgProd{
+  width:400px
+}
+
+.imgProd img{
+  width: 100%;
+}
+
+.prodName{
+  font-size: 30px;
+}
+
+.prodDescription div{
+  text-align: start;
+}
+
+.caloriesAmount{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 170px;
+  margin: 10px 0;
+}
+
+.prodManufacturer{
+  text-align: start;
+  margin: 20px 0 10px;
+}
+
+.infoProd{
+  margin-left: 200px;
+}
+
+.changeProd{
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.changeProd button{
+  border-radius: 100%;
+  padding: 4px 8px;
+  margin-left: 10px;
+}

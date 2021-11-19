@@ -1,50 +1,72 @@
 import { userApi } from "../services/user"
-import {SETUSERDATA} from '../actionType/user'
-
-export const setUserData = (data)=>({type:SETUSERDATA,data})
+import {setUserData} from '../reducers/user'
 
 
 /* Thunk */
-export const signUpUser = (payload)=>(dispatch)=>{
+
+export const loginUser =  (navigate,payload)=>async(dispatch)=>{
   try{
-    const {data} = userApi.signUp(payload)
+    const {data} = await userApi.login(payload)
     localStorage.setItem('token',data.accessToken)
     dispatch(setUserData(data.user))
+    navigate('/')
   }catch(error){
     console.log(error)
   }
 }
 
-export const refreshToken = ()=>()=>{
+export const signUpUser = (navigate,payload)=>async(dispatch)=>{
   try{
-    const {data} =userApi.refreshToken()
+    const {data} = await userApi.signUp(payload)
+    localStorage.setItem('token',data.accessToken)
+    dispatch(setUserData(data.user))
+    navigate('/')
+  }catch(error){
+    console.log(error)
+  }
+}
+
+export const getUser = ()=>async(dispatch)=>{
+  try{
+    const {data} = await userApi.getMe()
+    dispatch(setUserData(data.profile))
+  }catch(error){
+    console.log(error)
+  }
+}
+
+
+export const refreshToken = ()=>async()=>{
+  try{
+    const {data} = await userApi.refreshToken()
     localStorage.setItem('token',data.accessToken)
   }catch(error){
     console.log(error)
   }
 }
 
-export const logoutUser = ()=>()=>{
+export const logoutUser = (navigate)=>async()=>{
   try{
     const {data} = userApi.logout()
-  localStorage.removeItem('token')
+    localStorage.removeItem('token')
+    navigate('/login')
   }catch(error){
     console.log(error)
   }
 }
 
-export const updateUser = (payload)=>(dispatch)=>{
+export const updateUser = (payload)=>async(dispatch)=>{
   try{
-    const {data} = userApi.updateUser()
+    const {data} = await userApi.updateUser(payload)
     dispatch(setUserData(data))
   }catch(error){
     console.log(error)
   }
 }
 
-export const deleteUser = ()=>(dispatch)=>{
+export const deleteUser = ()=>async(dispatch)=>{
   try{
-    const {data} = userApi.deleteUser()
+    const {data} = await userApi.deleteUser()
     dispatch(setUserData(data))
   }catch(error){
     console.log(error)

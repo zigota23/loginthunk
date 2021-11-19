@@ -1,7 +1,0 @@
-export const SIGNUP = 'userReducer/signup'
-export const REFRESH = 'userReducer/refreshtoken'
-export const LOGOUT = 'userReducer/logout'
-export const GETUSER = 'userReducer/getuser'
-export const UPDATEUSER = 'userReducer/update'
-export const DELETEUSER = 'userReducer/delete'
-export const SETUSERDATA = 'userReducer/setdata'

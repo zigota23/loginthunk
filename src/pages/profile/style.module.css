@@ -1,0 +1,13 @@
+.profile{
+  display: flex;
+  flex-direction: row;
+}
+
+.profile_img{
+  width: 200px;
+}
+
+.profile_img img{
+  width: 100%;
+  height: auto;
+}

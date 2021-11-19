@@ -1,15 +1,15 @@
-import * as axios from 'axois'
+import * as axios from 'axios'
 
 
-const inctance = axios.create({
+const instance = axios.create({
   baseURL:'https://mock-api-nodejs.herokuapp.com/',
-  withCredentials:true
+  withCredentials:false
 })
 
-inctance.interceptor.request.use(config=>{
+instance.interceptors.request.use(config=>{
   const token = localStorage.getItem('token')
   config.headers['Authorization'] = `Bearer ${token}`
   return config
 })
 
-export default inctance
+export default instance

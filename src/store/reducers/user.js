@@ -1,22 +1,24 @@
-import { SETUSERDATA } from "../actionType/user"
+import { createAction,createReducer } from "@reduxjs/toolkit"
 
 
 const initailState = {
-  email:'',
-  login:'',
-}
-
-const userReducer = (state=initailState,action)=>{
-  switch(action.type){
-
-    case SETUSERDATA:
-      return{
-        ...state,
-        ...action.data
-      }
-
-    default: return state
+  user:{
+    email:'',
+    first_name:'',
+    last_name:'',
   }
+
 }
+
+export const setUserData = createAction('userReducer/setdata')
+
+const userReducer = createReducer(initailState,(builder)=>{
+  builder
+  .addCase(setUserData,(state,action)=>{
+    state.user = action.payload
+  })
+  .addDefaultCase((state,action)=>{})
+})
+
 
 export default userReducer

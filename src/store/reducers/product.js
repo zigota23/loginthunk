@@ -1,21 +1,18 @@
-import { SETPRODUCTDATA } from "../actionType/product"
+import { createAction,createReducer } from "@reduxjs/toolkit"
 
 
 const initailState = {
   products:[]
 }
 
-const productReducer = (state=initailState,action)=>{
-  switch(action.type){
+export const setProductData = createAction('productReducer/setdata')
 
-    case SETPRODUCTDATA:
-      return{
-        ...state,
-        products:[...action.data]
-      }
 
-    default: return state
+
+const productReducer = createReducer(initailState,{
+  [setProductData]:(state,action)=>{
+    state.products = [...action.payload]
   }
-}
+})
 
 export default productReducer

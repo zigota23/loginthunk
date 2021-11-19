@@ -1,0 +1,10 @@
+.header_ant{
+  background-color: rgb(67, 134, 211);
+  border-radius: 0 0 20px 20px;
+  z-index: 1000;
+}
+
+.buttonLog{
+  border-radius: 100%;
+  padding:4px 8px
+}

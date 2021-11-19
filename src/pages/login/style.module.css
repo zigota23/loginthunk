@@ -1,0 +1,40 @@
+.form_antd{
+  width: 500px;
+  position: absolute;
+  top:calc(50% - 84px);
+  left:calc(50% - 270px);
+  background-color: white;
+  height: 270px;
+}
+
+.form_antd form{
+  width: 400px;
+  margin:0 auto;
+  margin-left: 20px ;
+}
+
+.background_login{
+  width:100vw;
+  height: 100vh;
+  position: absolute;
+  top:0;
+  z-index: -1;
+}
+
+.background_login img{
+  height: 100%;
+  width: 100%;
+}
+
+.button_form{
+  width: 120px;
+  float: right;
+}
+
+.formTitle{
+  width: 400px;
+  margin:20px auto;
+  text-align: start;
+  font-size: 20px;
+}
+

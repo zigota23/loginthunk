@@ -1,0 +1,11 @@
+.button_form{
+  width: 120px;
+  float: right;
+}
+
+.formTitle{
+  width: 400px;
+  margin:20px auto;
+  text-align: start;
+  font-size: 20px;
+}
